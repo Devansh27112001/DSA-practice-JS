@@ -75,4 +75,64 @@ scores.forEach((element) => {
     minCount++;
   }
 });
+
 // console.log(maxCount,minCount)
+// C;V;mobile phone -> mobilePhone
+// C;C;coffee machine -> coffee machine
+// C;M;white sheet of paper -> whiteSheetOfPaper()
+// .slice(starting index (included), ending index (not included))
+let input = "S;M;plasticCup()";
+const [operation, type, stringName] = input.split(";");
+let finalString = "";
+if (operation === "C") {
+  if (type === "V") {
+    finalString = stringName
+      .split(" ")
+      .map((el, i) => {
+        if (i === 0) {
+          return el;
+        }
+
+        return el.slice(0, 1).toUpperCase() + el.slice(1);
+      })
+      .join("");
+  } else if (type === "C") {
+    finalString = stringName
+      .split(" ")
+      .map((el) => {
+        // First character to uppercase and the rest of the characters as it is.
+        return el.slice(0, 1).toUpperCase() + el.slice(1);
+      })
+      .join("");
+  } else if (type === "M") {
+    finalString =
+      stringName
+        .split(" ")
+        .map((el, i) => {
+          if (i === 0) {
+            return el;
+          }
+          return el.slice(0, 1).toUpperCase() + el.slice(1);
+        })
+        .join("") + "()";
+  }
+} else if (operation === "S") {
+  if (type === "V") {
+    finalString = stringName
+      .split("")
+      .map((el) => (el === el.toUpperCase() ? " " + el.toLowerCase() : el))
+      .join("");
+  } else if (type === "C") {
+    finalString = stringName
+      .split("")
+      .map((el) => (el === el.toUpperCase() ? " " + el.toLowerCase() : el))
+      .join("")
+      .trim();
+  } else if (type === "M") {
+    finalString = stringName
+      .slice(0, -2)
+      .split("")
+      .map((el) => (el === el.toUpperCase() ? " " + el.toLowerCase() : el))
+      .join("");
+  }
+}
