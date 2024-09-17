@@ -181,3 +181,39 @@ const roundedGrades = grades.map((grade) => {
   return nextMultiple;
 });
 // console.log(roundedGrades);
+
+const q = 4;
+const flippedNumber = q
+  .toString(2)
+  .padStart(32, "0")
+  .split("")
+  .map((el) => (el === "1" ? 0 : 1))
+  .join("");
+// console.log(parseInt(flippedNumber, 2));
+
+const diagonalArray = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+let primarySum = 0;
+let secondarySum = 0;
+const n = diagonalArray.length;
+for (let i = 0; i < n; i++) {
+  for (let j = 0; j < n; j++) {
+    // Primary diagonal
+    if (i === j) {
+      primarySum += diagonalArray[i][j];
+    }
+
+    // Secondary diagonal
+    if (i + j === n - 1) {
+      secondarySum += diagonalArray[i][j];
+    }
+  }
+}
+const diagonalsum =
+  primarySum > secondarySum
+    ? primarySum - secondarySum
+    : secondarySum - primarySum;
+// console.log(diagonalsum);
