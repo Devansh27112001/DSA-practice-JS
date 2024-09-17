@@ -136,3 +136,48 @@ if (operation === "C") {
       .join("");
   }
 }
+
+function compress(message) {
+  let count = 1;
+  let modifiedString = message.split("");
+  let compressed = "";
+  modifiedString.map((el, i) => {
+    if (el === modifiedString[i + 1]) {
+      count++;
+    } else {
+      if (count <= 1) {
+        compressed += el;
+      } else if (count > 1) {
+        compressed += el + count;
+        count = 1;
+      }
+    }
+  });
+  return compressed;
+}
+
+// console.log(compress("aaabb"));
+
+a = [1, 2, 3, 4, 3, 2, 1];
+// Find the unique element in the array that has no dupicate
+//XOR: a ^ a = 0 | a ^ 0 = a
+let unique = 0;
+for (let num of a) {
+  unique ^= num;
+}
+// unique;
+
+const grades = [73, 67, 38, 33];
+const roundedGrades = grades.map((grade) => {
+  let nextMultiple = grade;
+  if (nextMultiple >= 38) {
+    for (let i = 1; i <= 5; i++) {
+      if ((nextMultiple + i) % 5 === 0 && nextMultiple + i - grade < 3) {
+        nextMultiple += i;
+        break;
+      }
+    }
+  }
+  return nextMultiple;
+});
+// console.log(roundedGrades);
