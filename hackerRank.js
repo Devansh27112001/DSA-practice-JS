@@ -246,3 +246,28 @@ stepsString.split("").forEach((step) => {
   }
 });
 // console.log(valley);
+
+// -----------------------------------
+// Check if a given string is pangram
+let givenString = "We promptly judged antique ivory buckles for the prize";
+givenString = givenString.replaceAll(/\s/g, "").toLowerCase().split("");
+
+const charArray = Array.from({ length: 26 }, (_, i) =>
+  String.fromCharCode(i + 97)
+);
+// console.log(
+//   charArray.filter((char) => !givenString.includes(char)).length > 0
+//     ? "not pangram"
+//     : "pangram"
+// );
+
+// -----------------------------------
+const sosString = "SOSSOSSOSSOS";
+let altered = 0;
+for (i = 0; i < sosString.length; i += 3) {
+  const [first, second, third] = sosString.slice(i, i + 3).split("");
+  first !== "S" && altered++;
+  second !== "O" && altered++;
+  third !== "S" && altered++;
+}
+// console.log(altered);
