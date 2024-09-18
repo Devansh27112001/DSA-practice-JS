@@ -75,8 +75,9 @@ scores.forEach((element) => {
     minCount++;
   }
 });
-
 // console.log(maxCount,minCount)
+
+// --------------------------------------------------
 // C;V;mobile phone -> mobilePhone
 // C;C;coffee machine -> coffee machine
 // C;M;white sheet of paper -> whiteSheetOfPaper()
@@ -137,6 +138,7 @@ if (operation === "C") {
   }
 }
 
+// --------------------------------------------------
 function compress(message) {
   let count = 1;
   let modifiedString = message.split("");
@@ -158,6 +160,7 @@ function compress(message) {
 
 // console.log(compress("aaabb"));
 
+// --------------------------------------------------
 a = [1, 2, 3, 4, 3, 2, 1];
 // Find the unique element in the array that has no dupicate
 //XOR: a ^ a = 0 | a ^ 0 = a
@@ -167,6 +170,7 @@ for (let num of a) {
 }
 // unique;
 
+// --------------------------------------------------
 const grades = [73, 67, 38, 33];
 const roundedGrades = grades.map((grade) => {
   let nextMultiple = grade;
@@ -182,6 +186,7 @@ const roundedGrades = grades.map((grade) => {
 });
 // console.log(roundedGrades);
 
+// --------------------------------------------------
 const q = 4;
 const flippedNumber = q
   .toString(2)
@@ -191,6 +196,7 @@ const flippedNumber = q
   .join("");
 // console.log(parseInt(flippedNumber, 2));
 
+// --------------------------------------------------
 const diagonalArray = [
   [1, 2, 3],
   [4, 5, 6],
@@ -217,3 +223,26 @@ const diagonalsum =
     ? primarySum - secondarySum
     : secondarySum - primarySum;
 // console.log(diagonalsum);
+
+// --------------------------------------------------
+const originalArray = [1, 1, 4, 5, 8, 1, 1];
+const frequencyArray = Array.from({ length: 100 }, () => 0);
+originalArray.forEach((el) => frequencyArray[el]++);
+
+// --------------------------------------------------
+// Counting Values
+const stepsString = "DDUUUUDD";
+let count = 0;
+let valley = 0;
+stepsString.split("").forEach((step) => {
+  let prevCount = count;
+  if (step === "U") {
+    count++;
+    if (prevCount < 0 && count === 0) {
+      valley++;
+    }
+  } else if (step === "D") {
+    count--;
+  }
+});
+// console.log(valley);
