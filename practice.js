@@ -46,3 +46,27 @@ persondata;
 console.log("Devansh1");
 setTimeout(() => console.log("Timer 1"), 0);
 console.log("Devansh");
+
+//
+const data = [
+  {
+    name: "Devansh",
+    age: 55,
+  },
+  {
+    name: "Meghana",
+    age: 25,
+  },
+  {
+    name: "Shubham",
+    age: 35,
+  },
+];
+
+const headers = Object.keys(data[0]).map((key) => {
+  return {
+    label: key,
+    key,
+  };
+});
+console.log(headers);
