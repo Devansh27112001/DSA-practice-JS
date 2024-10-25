@@ -5,7 +5,7 @@ const isPalidrome = (string) => {
   return false;
 };
 
-const paindromeIndex = (string) => {
+const palindromeIndex = (string) => {
   const n = string.length;
   for (let i = 0; i < Math.floor(n / 2); i++) {
     if (string[i] !== string[n - 1 - i]) {
