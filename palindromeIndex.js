@@ -1,10 +1,11 @@
-const isPalidrome = (string) => {
+const isPalidrome = (s) => {
   if (s === s.split("").reverse().join("")) {
     return true;
   }
   return false;
 };
 
+// Solution 1
 const palindromeIndex = (string) => {
   const n = string.length;
   for (let i = 0; i < Math.floor(n / 2); i++) {
@@ -20,3 +21,25 @@ const palindromeIndex = (string) => {
   }
   return -1;
 };
+
+// Solution 2
+const index = (string) => {
+  let left = 0;
+  let right = string.length - 1;
+  while (left < right) {
+    if (string[left] !== string[right]) {
+      if (isPalidrome(string.slice(left + 1, right + 1))) {
+        return left;
+      }
+      if (isPalidrome(string.slice(left, right))) {
+        return right;
+      }
+      return -1;
+    }
+    left++;
+    right--;
+  }
+  return -1;
+};
+
+console.log(index("abceba"));
