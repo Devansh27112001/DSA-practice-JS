@@ -13,7 +13,7 @@ const minimumPowerPlants = (k, arr) => {
       }
     } else {
       location -= 1;
-      if (location < i - (k + 1) || location < 0) {
+      if (location < i - k || location < 0) {
         return -1;
       }
     }
