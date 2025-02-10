@@ -4,4 +4,4 @@ function devansh() {
   };
 }
 
-console.log(devansh());
+console.log(devansh().name);
